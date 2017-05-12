@@ -1,0 +1,269 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+    padding-top: 0;
+    overflow-x: hidden;
+}
+
+.container-full {
+    position: relative;
+    margin-top: 0;
+    padding: 15px 40px 15px 15px;
+}
+
+.container-full>h1 {
+    margin-top: 0;
+}
+
+.top-categories,
+.top-category__blocks {
+    /*display: flex;*/
+    position: absolute;
+    left: 0;
+    top: 8vh;
+    width: 100%;
+    height: 92vh;
+}
+
+.top-category__blocks {
+    z-index: 5;
+}
+
+.top-categories__single,
+.top-category__blocks>div {
+    /*display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;*/
+    float: left;
+    width: 33.333333333%;
+    padding: 30px;
+    text-align: center;
+    height: 100%;
+    position: relative;
+    transition: 0.5s;
+}
+
+.top-categories__single--expanded {
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    z-index: 5;
+    background-color: #fff;
+    transition: 0.5s;
+}
+
+.top-categories__single img {
+    width: 150px;
+}
+
+.top-categories__single:first-child {
+    background-color: #eee;
+    /*//left:0;*/
+    /*flex-basis:33.33333%;*/
+}
+
+.top-categories__single:nth-child(2) {
+    background-color: #ddd;
+}
+
+.top-categories__single:nth-child(3) {
+    background-color: #ccc;
+}
+
+.container-inner {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+.container-inner.level1 {
+    left: 20%;
+    background-color: #ccc;
+    height: 100vh;
+}
+
+.container-inner.level2 {
+    left: 30%;
+    background-color: #999;
+    z-index: 2;
+    height: 100vh;
+}
+
+.newclass {
+    /*position:fixed;*/
+    z-index: 5;
+}
+
+.bg {
+    /*opacity: 0;
+    display: none;*/
+}
+
+.bg:first-child {
+    background-color: #eee;
+}
+
+.bg:nth-child(2) {
+    background-color: #ddd;
+}
+
+.bg:last-child {
+    background-color: #ccc;
+}
+
+
+/*My styles*/
+
+.ux-container {
+    position: relative;
+    overflow-x: hidden;
+    height: 100vh;
+    
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.ux-container.level-1,
+.ux-container.level-2 {
+    position: absolute;
+    top: 0px;
+    width: 90vw;
+    height: 100vw;
+    opacity: 0;
+    display: flex;
+    overflow: visible;
+}
+
+.ux-container.level-1 {
+    /*background-color: #eee;*/
+    left: 100%;
+    z-index: 2;
+}
+
+.ux-container.level-2 {
+    /*background-color: #ddd;*/
+    left: 100%;
+    z-index: 3;
+}
+
+.round {
+    
+    height: 6vw;
+    width:6vw;
+    border-radius: 3vw;
+    line-height: 6vw;
+    font-size: 24px;
+    line-height: 6vw;
+    text-align: center;
+    background: #ff9900;
+}
+
+.topmenu {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    background: #efefef;
+}
+
+.level-0-container {
+    display: flex;
+    height: 100vh;
+    position: relative;
+}
+
+.level-0-item {
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.currentFixed {
+    position: fixed;
+}
+
+.lvl-0.destFixed {
+    position: fixed;
+    left: 3vw;
+    top: 45vh;
+    z-index: 4;
+}
+.lvl-1.destFixed {
+    position: fixed;
+    left: 17vw;
+    top: 45vh;
+    z-index: 4;
+}
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: -1;
+    background-color: #eee;
+}
+.overlay2 {
+    position: absolute;
+    left: 15vw;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: -1;
+    background-color: #eee;
+}
+.level-1 .triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50vh 10vw 50vh 0;
+    border-color: transparent #bbb transparent transparent;
+}
+.ux-container .level-1 .content{
+    background-color:#bbb;
+    width: 90vw;
+
+}
+.content{
+    padding-left:5vw;
+}
+
+.level-2 .triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50vh 10vw 50vh 0;
+    border-color: transparent #aaa transparent transparent;
+}
+.ux-container .level-2 .content{
+    background-color:#aaa;
+    width: 90vw;
+
+}
+.closebtn{
+    position: absolute;
+    top:48vh;
+    left:-20px;
+    height: 40px;
+    width:40px;
+    border-radius: 20px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    
+}
