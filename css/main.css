@@ -5,6 +5,8 @@
 body {
     padding-top: 0;
     overflow-x: hidden;
+    font-family: 'Assistant', sans-serif;
+    font-size: 16px;
 }
 
 .container-full {
@@ -123,7 +125,6 @@ body {
     position: relative;
     overflow-x: hidden;
     height: 100vh;
-    
 }
 
 body {
@@ -132,62 +133,86 @@ body {
 }
 
 .ux-container.level-1,
-.ux-container.level-2 {
+.ux-container.level-2,
+.ux-container.level-3 {
     position: absolute;
     top: 0px;
     width: 90vw;
-    height: 100vw;
+    /*height: 100vw;*/
     opacity: 0;
     display: flex;
     overflow: visible;
+    
 }
 
 .ux-container.level-1 {
     /*background-color: #eee;*/
     left: 100%;
     z-index: 2;
+    width: 91vw;
 }
 
 .ux-container.level-2 {
     /*background-color: #ddd;*/
     left: 100%;
     z-index: 3;
+    width: 78vw;
+}
+
+.ux-container.level-3 {
+    /*background-color: #ddd;*/
+    left: 100%;
+    z-index: 3;
+    width: 68vw;
 }
 
 .round {
-    
-    height: 6vw;
-    width:6vw;
-    border-radius: 3vw;
-    line-height: 6vw;
+    height: 8vw;
+    width: 8vw;
+    border-radius: 4vw;
+    line-height: 8vw;
     font-size: 24px;
-    line-height: 6vw;
+    line-height: 8vw;
     text-align: center;
-    background: #ff9900;
+    /*background: #ff9900;*/
+    border: 1px solid #ccc;
+    border:3px solid transparent;
 }
-
+.round:hover{
+    border:3px solid #ff9900;
+    transition: 1s;
+}
+.lvl-0 .round{
+        height: 8vw;
+    width: 8vw;
+    border-radius: 4vw;
+    line-height: 8vw;
+    font-size: 24px;
+    line-height: 8vw;
+}
+.lvl-0 h1{
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top:40px;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
 .topmenu {
     position: absolute;
     top: 0;
     width: 100%;
     z-index: 5;
-    background: #efefef;
+    background: #444;
+    color: #fff;
+    padding: 15px;
 }
 
 .level-0-container {
     display: flex;
     height: 100vh;
     position: relative;
-}
-
-.level-0-item {
-    display: flex;
-    flex-direction: column;
-    -ms-flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    flex-shrink: 0;
+    flex-direction: row;
+    -ms-flex-direction: row;
 }
 
 .currentFixed {
@@ -196,16 +221,65 @@ body {
 
 .lvl-0.destFixed {
     position: fixed;
-    left: 3vw;
-    top: 45vh;
+    left: 2vw;
+    /*top: 45vh;*/
     z-index: 4;
 }
+
+.lvl-0.destFixed img.round {
+     height: 8vw;
+    width: 8vw;
+    border-radius: 4vw;
+}
+
 .lvl-1.destFixed {
     position: fixed;
-    left: 17vw;
-    top: 45vh;
+    left: 12vw;
+    /*top: 46vh;*/
     z-index: 4;
 }
+
+.lvl-1.destFixed img {
+    height: 6vw;
+    width: 6vw;
+    border-radius: 3vw;
+    line-height: 6vw;
+    
+}
+
+.destFixed h1{
+    top: 8vw;
+}
+.lvl-1.destFixed h3{
+    top:6vw
+}
+.lvl-2.destFixed h3{
+    top:4vw
+}
+.destFixed h1,
+.destFixed h3 {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.lvl-2.destFixed {
+    position: fixed;
+    left: 27vw;
+    /*top: 47vh;*/
+    z-index: 4;
+}
+
+.lvl-2.destFixed img {
+    height: 4vw;
+    width: 4vw;
+    border-radius: 2vw;
+    line-height: 4vw;
+    
+}
+
 .overlay {
     position: absolute;
     left: 0;
@@ -214,8 +288,9 @@ body {
     height: 100%;
     opacity: 0;
     z-index: -1;
-    background-color: #eee;
+    background-color: #fff;
 }
+
 .overlay2 {
     position: absolute;
     left: 15vw;
@@ -224,22 +299,32 @@ body {
     height: 100%;
     opacity: 0;
     z-index: -1;
-    background-color: #eee;
+    background-color: #7F7F7F;
 }
+
 .level-1 .triangle {
     width: 0;
     height: 0;
     border-style: solid;
     border-width: 50vh 10vw 50vh 0;
-    border-color: transparent #bbb transparent transparent;
+    border-color: transparent #CAE0D9 transparent transparent;
 }
-.ux-container .level-1 .content{
-    background-color:#bbb;
-    width: 90vw;
 
+.ux-container .level-1 .content {
+    background-color: #CAE0D9;
+    width: 90vw;
 }
-.content{
-    padding-left:5vw;
+
+.content {
+    padding-left: 5vw;
+    /*text-align: center;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding:80px 40px;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    /*align-items: center;*/
 }
 
 .level-2 .triangle {
@@ -247,23 +332,101 @@ body {
     height: 0;
     border-style: solid;
     border-width: 50vh 10vw 50vh 0;
-    border-color: transparent #aaa transparent transparent;
+    border-color: transparent #A3BFB7 transparent transparent;
 }
-.ux-container .level-2 .content{
-    background-color:#aaa;
-    width: 90vw;
 
+.ux-container .level-2 .content {
+    background-color: #A3BFB7;
+    width: 90vw;
 }
-.closebtn{
+
+.level-3 .triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50vh 10vw 50vh 0;
+    border-color: transparent #7D9D95 transparent transparent;
+}
+
+.ux-container .level-3 .content {
+    background-color: #7D9D95;
+    width: 90vw;
+}
+
+.closebtn {
     position: absolute;
-    top:48vh;
-    left:-20px;
-    height: 40px;
-    width:40px;
-    border-radius: 20px;
-    line-height: 40px;
+    top: 48vh;
+    left: -15px;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    line-height: 30px;
     text-align: center;
     background-color: #333;
     color: #fff;
-    
+    cursor:pointer;
+}
+.closebtn:hover{
+    background-color: #ff9900;
+    transition: 0.5s;
+}
+
+
+/*//Level 0 styling*/
+
+.level-0-item {
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 33.3333%;
+    padding: 15px;
+}
+
+.level-0-item p {
+    max-width: 20vw;
+    text-align: center;
+}
+
+.level-0-item:nth-child(2) {
+    background-color: rgba(125,157,149,0.1) ;
+}
+
+.level-0-item:nth-child(3) {
+    background-color: rgba(125,157,149,0.3) ;
+}
+
+.level-0-item:last-child {
+    background-color: rgba(125,157,149,0.5) ;
+}
+
+.animate-enter {
+	-webkit-transition: 1s linear all; /* Chrome */
+	transition: 1s linear all;
+	opacity: 0;
+}
+ 
+.animate-enter.animate-enter-active {
+	opacity: 1;
+}
+
+.ng-enter {
+    -webkit-transition: 1s;
+    transition: 1s;
+    opacity: 0;
+}
+.ng-enter-active {
+    opacity: 1;
+}
+.ng-leave {
+  -webkit-transition: 1s;
+  transition: 1s;
+  
+  
+}
+
+.ng-leave-active {
 }
