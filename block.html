@@ -6,24 +6,44 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/elements.css">
     <link href="https://fonts.googleapis.com/css?family=Assistant:200,300,400,600,800" rel="stylesheet">
+    <link rel="stylesheet" href="css/ellipsis.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 
 <body>
 
     <div class="ux-container" ng-controller="myCtrl">
+        <!--<div class="preloader">
+            <div class='uil-ellipsis-css' style='transform:scale(0.45);'>
+                <div class="ib"><div class="circle"><div></div></div><div class="circle"><div></div></div><div class="circle"><div></div></div><div class="circle"><div></div></div></div>
+                </div>
+        </div>-->
 
         <input type="text" value="search" id="searchbox" ng-model="searchQuery">
-        <span class="searchclose">X</span>
+        <span class="searchclose ion-ios-close-outline"></span>
         <div class="searchresult">
             <h3>Search</h3>
             <hr/>
+
+
             <h4 class="m-t-3">Work</h4>
             <div class="listholder">
                 <div class="list-items" ng-repeat="listval in workItems | filter:searchQuery" ng-animate=" 'animate' ">
-                    <h5><a href="" class="">{{listval.sharepointTitle}}</a></h5>
-                    <p>This is a short intro about wireframes</p>
+
+
+
+                    <div class="media">
+                        <div class="media-left">
+                            <img src="img/assets/{{listval.thumbnailUrl}}.png" class="media-object img-circle" style="width:60px">
+                        </div>
+                        <div class="media-body">
+                            <h5 class="media-heading"><a href="" class="">{{listval.sharepointTitle}}</a></h5>
+                            <p>This is a short intro about wireframes</p>
+                        </div>
+                    </div>
                 </div>
+                
 
             </div>
             <h4>Marketing</h4>
@@ -46,42 +66,47 @@
 
         </div>
         <div class="topmenu">
-            <h4 class="pull-left">UX Navigator</h4>
+            <h4 class="pull-left logo">UX Navigator</h4>
             <ul class="list-unstyled list-inline">
-                <li>Home</li>
-                <li>Work</li>
-                <li>Contact</li>
+                <li><a href="">Home</a></li>
+                <li><a href="">Work</a></li>
+                <li><a href="">Contact</a></li>
             </ul>
         </div>
         <div class="level-0-container">
             <div class="overlay"></div>
             <div class="level-0-item">
-                <div class="lvl-0 rested">
-                    <img src="img/icons/1.jpg" class="lvl-0 round round-lg" data-topcat="work" ng-click="getLevel1Data('work')"></img>
-                    <h1>Work</h1>
+                <div class="level-0-item__container">
+                    <div class="lvl-0 rested">
+                        <img src="img/assets/work.png" class="lvl-0 round round-lg" data-topcat="work" ng-click="getLevel1Data('work')"></img>
+                        <h1>Work</h1>
+                    </div>
+                </div>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio, nemo quis tempora quisquam, architecto
+                    vero unde minima nobis temporibus perspiciatis
+                </p>
+            </div>
+            <div class="level-0-item">
+                <div class="level-0-item__container">
+                    <div class="lvl-0 rested">
+                        <img src="img/assets/marketing.png" class="round round-lg" data-topcat="marketing" ng-click="getLevel1Data('marketing')"></img>
+                        <h1>Marketing</h1>
+                    </div>
                 </div>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio, nemo quis tempora quisquam, architecto
                     vero unde minima nobis temporibus perspiciatis
                 </p>
 
-
             </div>
             <div class="level-0-item">
-                <div class="lvl-0 rested">
-                    <img src="img/icons/2.jpg" class="round round-lg" data-topcat="marketing" ng-click="getLevel1Data('marketing')"></img>
-                    <h1>Marketing</h1>
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio, nemo quis tempora quisquam, architecto
-                    vero unde minima nobis temporibus perspiciatis
-                </p>
-
-            </div>
-            <div class="level-0-item">
-                <div class="lvl-0 rested">
-                    <img src="img/icons/3.jpg" class="lvl-0 round round-lg" data-topcat="tools" ng-click="getLevel1Data('tools')"></img>
-                    <h1>Tools & Templates</h1>
+                <div class="level-0-item__container">
+                    <div class="lvl-0 rested">
+                        <img src="img/assets/tools.png" class="lvl-0 round round-lg" data-topcat="tools" ng-click="getLevel1Data('tools')"></img>
+                        <h1>Tools & Templates</h1>
+                    </div>
                 </div>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio, nemo quis tempora quisquam, architecto
@@ -99,20 +124,22 @@
             <div class="closebtn" id="close-level-1">X</div>
             <div class="content">
                 <div class="overlay2"></div>
+
                 <!--{{level1Data}}-->
                 <div class="col-item col-item-lvl-1" ng-repeat="listval in level1Data.list">
-                    <div class="lvl-1" ng-click="getLevel2Data(level1Data.cat,listval)">
-                        <img src="img/assets/{{listval | getCatImage}}.png" class=" round round-lg"></img>
-                        <!--<p>sdaslkdalsjdlas jl</p>-->
-                        <h3>{{listval}}</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio, nemo quis tempora
-                            quisquam, architecto vero unde minima nobis temporibus perspiciatis</p>
-
+                    <div class="col-item__container">
+                        <div class="lvl-1" ng-click="getLevel2Data(level1Data.cat,listval)">
+                            <img src="img/assets/{{listval | getCatImage}}.png" class=" round round-lg"></img>
+                            <!--<p>sdaslkdalsjdlas jl</p>-->
+                            <h3>{{listval}}</h3>
+                        </div>
                     </div>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio, nemo quis tempora quisquam,
+                        architecto vero unde minima nobis temporibus perspiciatis</p>
                 </div>
+                
             </div>
-
-
         </div>
         <div class="ux-container level-2">
             <div class="triangle"></div>
@@ -120,23 +147,16 @@
             <div class="content">
 
                 <div class="overlay3"></div>
-
-
                 <div class="col-item" ng-repeat="listval in level2Data.list">
-                    <div class="lvl-2" ng-click="getLevel3Data(level2Data.cat,level2Data.subcat,listval.sharepointTitle)">
-                        <img src="img/assets/{{listval.thumbnailUrl}}.png" class=" round round-lg"></img>
-                        <h3>{{listval.sharepointTitle}}</h3>
-                        <p>askdjlakdjlaksjdlasdj</p>
+                    <div class="col-item__container">
+                        <div class="lvl-2" ng-click="getLevel3Data(level2Data.cat,level2Data.subcat,listval.sharepointTitle)">
+                            <img src="img/assets/{{listval.thumbnailUrl}}.png" class=" round round-lg"></img>
+                            <h3>{{listval.sharepointTitle}}</h3>
+                        </div>
                     </div>
+                    <p>askdjlakdjlaksjdlasdj</p>
                 </div>
 
-                <!--<div class="col-item">
-                    <div class="lvl-2">
-                        <img src="img/icons/2.jpg" class=" round round-lg"></img>
-                        <h3>abcd</h3>
-                        <p>askdjlakdjlaksjdlasdj</p>
-                    </div>
-                </div>-->
 
             </div>
 
@@ -155,12 +175,14 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <h3>Some sub title</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, vero debitis ea dolorem officia quae. Error maiores dolores alias dolore reiciendis ad! Sapiente inventore obcaecati, mollitia, quod reprehenderit dignissimos eius.
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, vero debitis ea dolorem officia quae. Error maiores dolores
+                            alias dolore reiciendis ad! Sapiente inventore obcaecati, mollitia, quod reprehenderit dignissimos
+                            eius.
                         </p>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <img src="http://lorempixel.com/400/200/" alt="">
-                        
+                        <img src="img/assets/{{level3Data[0].thumbnailUrl}}.png" class="img-responsive" alt="">
+
                     </div>
 
                 </div>
@@ -181,9 +203,9 @@
         <script src="../bower_components/gsap/src/minified/TweenMax.min.js"></script>
         <script src="../bower_components/gsap/src/minified/TimelineMax.min.js"></script>
         <script src="../bower_components/gsap/src/minified/plugins/CSSPlugin.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/defiant.js/1.4.2/defiant.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
+        <script src="js/vendor/angular.min.js"></script>
+        <script src="js/vendor/defiant.js"></script>
+        <script src="js/vendor/angular-animate.min.js"></script>
         <script src="js/main.js"></script>
         <script src="js/angular.js"></script>
         <script>

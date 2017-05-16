@@ -8,7 +8,13 @@ body {
     font-family: 'Assistant', sans-serif;
     font-size: 16px;
 }
-
+body a{
+    color: #ff9900;
+}
+body a:hover{
+    text-decoration: none;
+    
+}
 .container-full {
     position: relative;
     margin-top: 0;
@@ -183,10 +189,10 @@ body {
     transition: 1s;
 }
 .lvl-0 .round{
-        height: 8vw;
-    width: 8vw;
-    border-radius: 4vw;
-    line-height: 8vw;
+        height: 10vw;
+    width: 10vw;
+    border-radius: 5vw;
+    line-height: 10vw;
     font-size: 24px;
     line-height: 8vw;
 }
@@ -195,6 +201,11 @@ body {
     font-weight: 700;
     margin-top:40px;
     font-size: 24px;
+    
+}
+.level-0-item__container{
+    height: 250px;
+    text-align: center;
     margin-bottom: 40px;
 }
 .topmenu {
@@ -204,9 +215,25 @@ body {
     z-index: 5;
     background: #444;
     color: #fff;
-    padding: 15px;
+    padding: 0 15px;
+    height: 70px;
 }
-
+.topmenu .logo{
+margin-left:15px;
+font-weight: 700;
+font-size: 20px;
+line-height: 70px;
+margin-top:0;
+margin-right: 40px;
+cursor: pointer;
+}
+.topmenu ul{
+    margin:0;
+    padding: 0;
+}
+.topmenu li a{
+    line-height: 70px;
+}
 .level-0-container {
     display: flex;
     height: 100vh;
@@ -234,8 +261,7 @@ body {
 
 .lvl-1.destFixed {
     position: fixed;
-    left: 12vw;
-    /*top: 46vh;*/
+    left: 15vw;
     z-index: 4;
 }
 
@@ -246,7 +272,7 @@ body {
     line-height: 6vw;
     
 }
-
+input:focus {outline:none;}
 .destFixed h1{
     top: 8vw;
 }
@@ -324,9 +350,15 @@ body {
     padding:80px 40px;
     flex-wrap: wrap;
     -ms-flex-wrap: wrap;
-    /*align-items: center;*/
+    align-items: center;
+    overflow-y: scroll;
 }
-
+.col-item__container{
+    height: 200px;
+    /*width:300px;*/
+    /*display: block;*/
+    text-align: center;
+}
 .level-2 .triangle {
     width: 0;
     height: 0;
@@ -349,8 +381,9 @@ body {
 }
 
 .ux-container .level-3 .content {
-    background-color: #7D9D95;
+        background-color: #7D9D95;
     width: 90vw;
+    height:100vh;
 }
 
 .closebtn {
@@ -365,13 +398,19 @@ body {
     background-color: #333;
     color: #fff;
     cursor:pointer;
+    opacity: 0;
 }
 .closebtn:hover{
     background-color: #ff9900;
+      -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
     transition: 0.5s;
 }
 
-
+.level-1:hover .closebtn,.level-2:hover .closebtn,.level-3:hover .closebtn{
+    opacity:1;
+    transition:0.5s;
+}
 /*//Level 0 styling*/
 
 .level-0-item {
@@ -392,7 +431,9 @@ body {
 }
 
 .level-0-item:nth-child(2) {
+
     background-color: rgba(125,157,149,0.1) ;
+
 }
 
 .level-0-item:nth-child(3) {
@@ -429,4 +470,15 @@ body {
 }
 
 .ng-leave-active {
+}
+.preloader{
+    position:fixed;
+    z-index:9999;
+    top:0;
+    left:0;
+    height:100vh;
+    width:100vw;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
