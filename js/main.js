@@ -69,9 +69,9 @@ initTimeline.play();
             borderWidthRight: '10vw'
         })
 
-        l1Timeline.to(".level-1", 0.3, {
+        l1Timeline.to(".level-1", 1, {
             left: "11vw",
-            ease: Back.ease,
+            ease: Elastic.easeOut.config(0.5, 0.35),
             opacity: 1,
             zIndex: 2,
 
@@ -154,9 +154,9 @@ initTimeline.play();
         },-0.1);
 
         
-        l2Timeline.to(".level-2", 0.3, {
+        l2Timeline.to(".level-2", 1, {
             left: "22vw",
-            ease: Back.ease,
+            ease: Elastic.easeOut.config(0.5, 0.35),
             opacity: 1,
 
         }, "+=0.3");
@@ -193,7 +193,8 @@ initTimeline.play();
         var topOffset = $(window).height() / 2 - ($(this).find('img').height() / 2);
         l3Timeline.to($(this).parent().parent(), 0.1, {
             css:{
-                borderWidth:0
+                borderWidth:0,
+                backgroundColor:'transparent'
             }
         }, -0.7);
         l3Timeline.to($(this).parent().parent().find('p'), 0.1, {
@@ -217,9 +218,9 @@ initTimeline.play();
         });
         
 
-        l3Timeline.to(".level-3", 0.3, {
+        l3Timeline.to(".level-3", 1, {
             left: "32vw",
-            ease: Back.ease,
+            ease: Elastic.easeOut.config(0.5, 0.35),
             opacity: 1,
 
         }, 1.5);
