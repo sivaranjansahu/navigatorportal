@@ -1,9 +1,7 @@
-
-
 $(document).ready(function () {
-    window.onload = function () { 
-    $('.preloader').hide('slow');
- }
+    window.onload = function () {
+        $('.preloader').hide('slow');
+    }
     //instantiate a TimelineLite 
     var l1Timeline = new TimelineLite({
         paused: true,
@@ -14,20 +12,23 @@ $(document).ready(function () {
     var l3Timeline = new TimelineLite({
         paused: true,
     });
-    var initTimeline=new TimelineLite({
-        paused:true
+    var initTimeline = new TimelineLite({
+        paused: true
     })
 
-// Landingpage animations
-initTimeline.staggerFrom('.lvl-0 >img',0.3,{opacity:0,bottom:30},0.5)
-initTimeline.play();
+    // Landingpage animations
+    initTimeline.staggerFrom('.lvl-0 >img', 0.3, {
+        opacity: 0,
+        bottom: 30
+    }, 0.5)
+    initTimeline.play();
 
     //open close level 0
 
     $('.lvl-0').on('click', function () {
         var offset = $(this);
         var imgheight = $(this).find('img').height();
-        var topOffset = ($(window).height() / 2) - imgheight/2;
+        var topOffset = ($(window).height() / 2) - imgheight / 2;
         l1Timeline.clear();
         l1Timeline.to('.topmenu', 0.6, {
             top: '-100px',
@@ -41,11 +42,11 @@ initTimeline.play();
         l1Timeline.to('.topmenu h4', '0.3', {
             position: 'fixed',
             top: 5,
-            scale:1.4,
+            scale: 1.4,
             left: 40,
             color: '#444',
             fontWeight: 700,
-            fontSize:'20px',
+            fontSize: '20px',
             ease: Power3.easeOut
         })
         l1Timeline.to($(this).find('p'), 0.3, {
@@ -63,7 +64,7 @@ initTimeline.play();
         var that = this;
         l1Timeline.to($(this), 0.5, {
             className: "+=destFixed",
-            top:'41vh'
+            top: '41vh'
         }, -0.1);
         l1Timeline.to($('.triangle'), 1, {
             borderWidthRight: '10vw'
@@ -76,7 +77,7 @@ initTimeline.play();
             zIndex: 2,
 
         }, 0.5);
-        
+
         l1Timeline.play();
     })
     // close level 0
@@ -95,11 +96,11 @@ initTimeline.play();
         l3Timeline.reverse();
         l2Timeline.reverse();
         l1Timeline.reverse();
-        
-        
+
+
     })
     $(".topmenu h4").on('click', function () {
-         l1Timeline.set($(this), {
+        l1Timeline.set($(this), {
             css: {
                 clearProps: "all"
             }
@@ -107,8 +108,8 @@ initTimeline.play();
         l3Timeline.reverse();
         l2Timeline.reverse();
         l1Timeline.reverse();
-        
-        
+
+
     })
     $(".lvl-0.destFixed.currentFixed").on('click', function () {
         alert();
@@ -119,7 +120,7 @@ initTimeline.play();
 
     // //open close level 1
 
-    $('body').on('click','.lvl-1', function () {
+    $('body').on('click', '.lvl-1', function () {
         var offset = $(this).offset();
         //console.log(offset.width())
         var offsetH1 = $(this).parent().find('h1').offset;
@@ -127,9 +128,9 @@ initTimeline.play();
         l2Timeline.clear();
 
         l2Timeline.to($(this).parent().parent(), 0.1, {
-            css:{
-                borderWidth:0,
-                backgroundColor:'transparent'
+            css: {
+                borderWidth: 0,
+                backgroundColor: 'transparent'
             }
         });
 
@@ -142,7 +143,7 @@ initTimeline.play();
 
         l2Timeline.set($(this), {
             className: "+=currentFixed"
-        },-0.1);
+        }, -0.1);
 
         var topOffset = '44vh';
         //var topOffset = ($(window).height() / 2) -($('.lvl-1').find('img').height()/2) ;
@@ -150,17 +151,17 @@ initTimeline.play();
 
             className: "+=destFixed",
             top: topOffset,
-         
-        },-0.1);
 
-        
+        }, -0.1);
+
+
         l2Timeline.to(".level-2", 1, {
             left: "22vw",
             ease: Elastic.easeOut.config(0.5, 0.35),
             opacity: 1,
 
         }, "+=0.3");
-        
+
         l2Timeline.play();
         l2Timeline.reversed(false)
 
@@ -186,15 +187,15 @@ initTimeline.play();
 
     // //open close level 3
 
-    $('body').on('click','.lvl-2', function () {
+    $('body').on('click', '.lvl-2', function () {
         var offset = $(this);
         var that = this;
         l3Timeline.clear();
         var topOffset = $(window).height() / 2 - ($(this).find('img').height() / 2);
         l3Timeline.to($(this).parent().parent(), 0.1, {
-            css:{
-                borderWidth:0,
-                backgroundColor:'transparent'
+            css: {
+                borderWidth: 0,
+                backgroundColor: 'transparent'
             }
         }, -0.7);
         l3Timeline.to($(this).parent().parent().find('p'), 0.1, {
@@ -208,23 +209,23 @@ initTimeline.play();
         l3Timeline.set($(this), {
             className: "+=currentFixed"
 
-        },-0.1);
+        }, -0.1);
         l3Timeline.to($(this), 0.2, {
 
             className: "+=destFixed",
-            top: '46vh',
+            top: '47vh',
 
 
         });
-        
+
 
         l3Timeline.to(".level-3", 1, {
-            left: "32vw",
+            left: "31vw",
             ease: Elastic.easeOut.config(0.5, 0.35),
             opacity: 1,
 
         }, 1.5);
-        
+
         l3Timeline.play();
         l3Timeline.reversed(false)
 
@@ -256,12 +257,12 @@ initTimeline.play();
     //      //TweenLite.set(this,{className:'-=col-item__dark'})
     // })
 
-//     $('.col-item').hover(function(){
-//         alert();
-	
-// },function(){
-// 	TweenLite.to(this,1,{scale:11,ease:Elastic.ease})
-// })
+    //     $('.col-item').hover(function(){
+    //         alert();
+
+    // },function(){
+    // 	TweenLite.to(this,1,{scale:11,ease:Elastic.ease})
+    // })
 
     // Search Animations
 
@@ -295,7 +296,13 @@ initTimeline.play();
         $(this).removeClass('animated pulse')
     })
 
- 
+$('body').on('click','.launchreview',function(){
+    TweenLite.to('.feedback-container',0.5,{right:0,ease:Power4.easeOut})
+})
+$('body').on('click','.feedback-container .close',function(){
+    TweenLite.to('.feedback-container',0.5,{right:'-25vw',ease:Power4.easeOut})
+})
+
 })
 var myFunc = function (event) {
     event.stopPropagation();

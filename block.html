@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/elements.css">
     <link href="https://fonts.googleapis.com/css?family=Assistant:200,300,400,600,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" rel="stylesheet">
     <link rel="stylesheet" href="css/ellipsis.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -44,16 +45,16 @@
             <h4>Marketing</h4>
             <div class="listholder">
                 <div class="list-items" ng-repeat="listval in marketingItems | filter:searchQuery">
-                    
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="img/assets/{{listval.thumbnailUrl}}.png" class="media-object img-circle" style="width:60px">
-                            </div>
-                            <div class="media-body">
-                                <h5 class="media-heading"><a href="" class="">{{listval.sharepointTitle}}</a></h5>
-                                <p>This is a short intro about marketing</p>
-                            </div>
+
+                    <div class="media">
+                        <div class="media-left">
+                            <img src="img/assets/{{listval.thumbnailUrl}}.png" class="media-object img-circle" style="width:60px">
                         </div>
+                        <div class="media-body">
+                            <h5 class="media-heading"><a href="" class="">{{listval.sharepointTitle}}</a></h5>
+                            <p>This is a short intro about marketing</p>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -70,16 +71,19 @@
 
         </div>
         <div class="topmenu">
-            <h4 class="pull-left logo">UX Navigator</h4>
+            <h4 class="pull-left logo">
+                <!--<img src="img/logo.png" alt="">-->
+                UX Navigator</h4>
             <ul class="list-unstyled list-inline">
                 <li><a href="">Home</a></li>
                 <li><a href="">Work</a></li>
                 <li><a href="">Contact</a></li>
+
             </ul>
         </div>
         <div class="level-0-container">
             <div class="overlay"></div>
-            <div class="level-0-item">
+            <div class="level-0-item" data-raven=1>
                 <div class="level-0-item__container">
                     <div class="lvl-0 rested">
                         <img src="img/assets/work.png" class="lvl-0 round round-lg" data-topcat="work" ng-click="getLevel1Data('work')"></img>
@@ -92,7 +96,7 @@
                     vero unde minima nobis temporibus perspiciatis
                 </p>
             </div>
-            <div class="level-0-item">
+            <div class="level-0-item" data-raven=2>
                 <div class="level-0-item__container">
                     <div class="lvl-0 rested">
                         <img src="img/assets/marketing.png" class="round round-lg" data-topcat="marketing" ng-click="getLevel1Data('marketing')"></img>
@@ -105,7 +109,7 @@
                 </p>
 
             </div>
-            <div class="level-0-item">
+            <div class="level-0-item" data-raven=3>
                 <div class="level-0-item__container">
                     <div class="lvl-0 rested">
                         <img src="img/assets/tools.png" class="lvl-0 round round-lg" data-topcat="tools" ng-click="getLevel1Data('tools')"></img>
@@ -123,7 +127,7 @@
 
         </div>
 
-        <div class="ux-container level-1">
+        <div class="ux-container level-1" data-raven=4>
             <div class="triangle"></div>
             <div class="closebtn" id="close-level-1">X</div>
             <div class="content">
@@ -135,12 +139,11 @@
                         <div class="lvl-1" ng-click="getLevel2Data(level1Data.cat,listval)">
                             <img src="img/assets/{{listval | getCatImage}}.png" class=" round round-lg"></img>
                             <!--<p>sdaslkdalsjdlas jl</p>-->
-                            <h3>{{listval}}</h3>
+                            <h2>{{listval}}</h2>
                         </div>
                     </div>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio, nemo quis tempora quisquam,
-                        architecto vero unde minima nobis temporibus perspiciatis</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio, nemo quis </p>
                 </div>
 
             </div>
@@ -155,10 +158,11 @@
                     <div class="col-item__container">
                         <div class="lvl-2" ng-click="getLevel3Data(level2Data.cat,level2Data.subcat,listval.sharepointTitle)">
                             <img src="img/assets/{{listval.thumbnailUrl}}.png" class=" round round-lg"></img>
-                            <h3>{{listval.sharepointTitle}}</h3>
+                            <!--<div class="round-sm">{{$index + 1}}</div>-->
+                            <h2>{{listval.sharepointTitle}}</h2>
                         </div>
                     </div>
-                    <p>askdjlakdjlaksjdlasdj</p>
+                    <!--<p>askdjlakdjlaksjdlasdj</p>-->
                 </div>
 
 
@@ -172,9 +176,8 @@
             <div class="content">
 
                 <div class="overlay3"></div>
-
-                <!--{{level3Data}}-->
-                <h1>{{level3Data[0].sharepointTitle}}</h1>
+                <div>
+                    <h1>{{level3Data[0].sharepointTitle}}</h1>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <h3>Some sub title</h3>
@@ -190,10 +193,9 @@
                     </div>
 
                 </div>
-
+                </div>
             </div>
-
-        </div>
+            </div>
 
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
@@ -212,8 +214,50 @@
         <script src="js/vendor/angular-animate.min.js"></script>
         <script src="js/main.js"></script>
         <script src="js/angular.js"></script>
+
+        <!--For feedback-->
+        <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+        <script src='https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js'></script>
+
+
         <script>
         </script>
+
+
+        <!--Feedback section-->
+        <span class="launchreview">Review this</span>
+        <div class="feedback-container" ng-controller="chatCtrl">
+            <div class="feedback-container__head">
+                <h3>Review section</h3>
+            This is visible only during dev phase.
+            <hr/>
+            </div>
+            
+
+            <div id="messagesDiv" class="messages-list">
+                <div ng-repeat="msg in messages">
+                    <dl>
+                        <dt>{{msg.from}}</dt>
+                        <dd>{{msg.body}}</dd>
+                    </dl>
+                </div>
+
+
+
+            </div>
+            <div class="feedback-container__footer">
+                <div class="close">
+                X
+            </div>
+                <h4>Feedback</h4>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name" placeholder="Your name" ng-model="name">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name" placeholder="Comment" ng-model="msg" ng-keydown="addMessage($event)">
+                </div>
+            </div>
+
 
 </body>
 

@@ -1,4 +1,4 @@
-var app = angular.module('navigatorApp', ['ngAnimate']);
+var app = angular.module('navigatorApp', ['ngAnimate','firebase']);
 app.controller('myCtrl', function ($scope, $http) {
         $scope.firstName = "John";
         $scope.lastName = "Doe";
@@ -59,12 +59,43 @@ app.controller('myCtrl', function ($scope, $http) {
             "Research":"cat1",
             "Requirements":"cat2",
             "Menu":"cat3",
-            "cat4":"cat4"
+            "cat4":"cat4",
+            "UX Offerings":"cat3",
+            "The Team":"cat4",
+            "Presales Materials":"cat2",
+            "Research and Audit":"cat3",
+            "Ideation":"cat1",
+            "Design deliverables":"cat3",
+            "Repositories":"cat2"
         }
             return subcategories[item];
         }
     })
+    .directive('helloWorld', function() {
+  return {
+      restrict: 'AE',
+    //   replace: 'true',
+      templateUrl:'partials/a.html',
+      
+  };
+})
 
+.controller('chatCtrl',function($scope, $firebase) {
+  var ref = new Firebase("https://raven-7aafe.firebaseio.com");
+  
+  $scope.messages = $firebase(ref);
+  
+  $scope.addMessage = function(e) {
+          if (e.keyCode != 13) return;
+          $scope.messages.$add({from: $scope.name, body: $scope.msg});
+          $scope.msg = "";
+   }
+}) 
+.filter('reverse', function() {
+    return function(items) {
+      return items.slice().reverse();
+    };
+  });
 function unique(list) {
     var result = [];
     $.each(list, function (i, e) {
